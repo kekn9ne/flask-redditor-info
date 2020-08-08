@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redditor Info</title>
+</head>
+<body>
+    
+    <form action="/" method="post">
+        <input type="text" name="username" id="username" placeholder="Redditor Username">
+        <input type="submit" value="Submit">
+    </form>
+    {% if redditor %}
+        <p>Username: {{ redditor.name }} <br>
+        ID: {{ redditor.id }}<br>
+        Created At: {{ redditor.created_utc }}<br>
+        Image: <img src="{{ redditor.icon_img }}" height="30" width="30"><br>
+        Is Mod: {{ redditor.is_mod }}<br>
+        Is Gold: {{ redditor.is_gold }}<br>
+        Is Employee: {{ redditor.is_employee }}<br>
+        Post Karma: {{ redditor.link_karma }}<br>
+        Comment Karma: {{ redditor.comment_karma }}</p>
+    {% elif error %}
+        <p>{{ error }}</p>
+    {% endif %}
+</body>
+</html>
